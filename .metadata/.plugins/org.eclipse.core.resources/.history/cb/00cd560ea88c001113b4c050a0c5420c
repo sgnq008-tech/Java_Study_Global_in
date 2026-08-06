@@ -1,0 +1,17 @@
+package com.objectEX;
+
+public class Card {
+	
+	// 인스턴스 변수
+    String kind;
+    int number;
+	
+	
+	// 클래스 변수
+    static int width = 100; // 가로가 100
+    static int height = 250; // 세로가 250
+    // static 같이 공유하는 것
+    
+    
+
+}

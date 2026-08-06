@@ -1,0 +1,27 @@
+package com.exam;
+
+public class Grade {
+	
+
+
+	private int kor;
+	private int eng;
+	private int mat;
+	
+	private float average; 
+	
+	public Grade(int kor, int eng, int mat, float average) {
+		super();
+		this.kor = kor;
+		this.eng = eng;
+		this.mat = mat;
+		this.average = average;
+	}
+	 
+	public void me() {
+		System.out.println();
+		
+	}
+	
+
+}

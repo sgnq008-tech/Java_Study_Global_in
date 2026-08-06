@@ -1,0 +1,16 @@
+package com.While;
+/*
+ * 문]
+ *  사용자로부터 하나의 숫자를 입력받은 다음, 그 수만큼 4의 배수를 출력하는
+ *  프로그램을 구현하시오.
+ *  
+ *  정수입력 : 6
+ *  4 8 12 16 20........
+ */
+public class WhileEX04 {
+
+	public static void main(String[] args) {
+
+	}
+
+}

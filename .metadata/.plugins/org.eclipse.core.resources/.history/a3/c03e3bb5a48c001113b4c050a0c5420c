@@ -1,0 +1,10 @@
+package com.objectEX;
+
+public class CardExam {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

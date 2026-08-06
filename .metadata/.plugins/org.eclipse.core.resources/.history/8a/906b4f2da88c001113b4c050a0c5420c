@@ -1,0 +1,49 @@
+package com.objectEX;
+
+public class CardExam {
+
+	public static void main(String[] args) {
+		// 클래스 변수(static 변수)는 객체생성 없이 (클래스명.변수)로 직접 사용이 가능함
+		System.out.println("Card.width : "+Card.width);
+		System.out.println("Card.height : "+Card.height);
+		
+		
+		Card c1 = new Card(); // 객체를 생성
+		c1.kind = "Heart";
+		c1.number = 7;
+		
+		Card c2 = new Card();
+		c2.kind = "Space";
+		c2.number = 3;  // 인스턴스 변수
+		
+		System.out.println("c1은"+c1.kind+","+c1.number+"이며 크기는 "+c1.width+","+c1.height+"입니다");
+		System.out.println("c2은"+c1.kind+","+c2.number+"이며 크기는 "+c2.width+","+c2.height+"입니다");
+
+		System.out.println("c1의 width와 height를 각각 50, 80으로 변하시오.");
+		
+		
+		Card.width = 50;
+		Card.height = 80;
+		
+		System.out.println("c1은"+c1.kind+","+c1.number+"이며 크기는 "+c1.width+","+c1.height+"입니다");
+		System.out.println("c2은"+c1.kind+","+c2.number+"이며 크기는 "+c2.width+","+c2.height+"입니다");
+		/* c1의 width와 height를 변경하면
+		 * c2의 width와 height값도 바꾼 것과 같은 결과를 얻는다.
+		 * 
+		 * Card.width, c1.width, c2.width는 모두 같은 저장공간을 참조하므로 항상 값은 같다.
+		 * 
+		 */
+		
+		
+		
+		/*
+		 * 인스턴스 변수는 인스턱스(객체가) 생성될떄마다 생성되므로 인스턴스마다 각기 다른 값을 유지할 수 있지만, 클래스 변수는 모든 인스턴스가
+		 * 하나의 저장공간을 공유하므로 항상 공통된 값을 갖는다.
+		 */
+		
+		
+
+
+	}
+
+}

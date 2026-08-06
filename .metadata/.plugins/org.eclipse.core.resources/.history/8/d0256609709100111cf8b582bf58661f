@@ -1,0 +1,63 @@
+package Game;
+
+public class word {
+	public class WordGameApp {
+	    private Player[] players;
+	    private String startword = "아버지"; // 게임 시작 단어
+	    private Scanner sc;
+
+	    // 생성자
+	    public WordGameApp() {
+	        sc = new Scanner(System.in);
+	    }
+
+	    // 게임참가자 수를 입력받고, Player 객체배열을 생성 및 초기화하는 메소드
+	    public void createPlayers() {
+	        System.out.print("게임 참가자 인원 수 : ");
+	        int n = sc.nextInt();
+	        players = new Player[n]; // 객체 배열 공간 할당
+
+	        // [추가된 부분] 각 참가자의 이름을 입력받아 Player 객체 생성
+	        for (int i = 0; i < players.length; i++) {
+	            System.out.print("참가자 이름 : ");
+	            String name = sc.next();
+	            players[i] = new Player(name);
+	        }
+	    }
+
+	    public void run() {
+	        System.out.println("끝말잇기 게임을 시작합니다. ..........");
+	        createPlayers(); // 참가자 수와 이름을 입력 받는다.
+
+	        // [추가된 부분] 게임 진행 로직
+	        System.out.println("시작단어는 " + startword + "입니다.");
+
+	        String lastWord = startword; // 이전 단어를 추적할 변수
+	        int playerIndex = 0;         // 현재 차례인 참가자의 인덱스
+
+	        while (true) {
+	            Player currentPlayer = players[playerIndex]; // 현재 참가자
+	            String newWord = currentPlayer.getWordFromUser(); // 단어 입력 받기
+
+	            // 성공 여부 검사 (실패시 게임 종료)
+	            if (!currentPlayer.checkSuccess(lastWord, newWord)) {
+	                System.out.println(currentPlayer.getName() + "이 졌습니다.");
+	                break; // 무한 루프 탈출
+	            }
+
+	            // 성공 시, 낸 단어를 기준 단어로 변경
+	            lastWord = newWord;
+
+	            // 다음 차례 참가자로 변경 (인원수로 나눈 나머지를 활용하여 순환)
+	            playerIndex = (playerIndex + 1) % players.length;
+	        }
+	    }
+
+	    public static void main(String[] args) {
+	        // [추가된 부분] 객체 생성 후 실행
+	        WordGameApp game = new WordGameApp();
+	        game.run();
+	    }
+
+	}
+

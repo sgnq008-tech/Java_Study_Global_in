@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="exam.SwitchEX"/>
+    <fullyQualifiedTypeName name="javax.swing.SwingConstants"/>
+    <fullyQualifiedTypeName name="java.lang.invoke.SwitchPoint"/>
+    <fullyQualifiedTypeName name="java.lang.Float"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.ArrayEXexam.ArrayEX01"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="com.objectEX.CardExam"/>
+    <fullyQualifiedTypeName name="com.objectEX.Card"/>
+    <fullyQualifiedTypeName name="com.objectEX.Circle"/>
+    <fullyQualifiedTypeName name="com.objectEX.Rectangle"/>
+    <fullyQualifiedTypeName name="com.objectEX.Sungjuk"/>
+    <fullyQualifiedTypeName name="com.objectEX.Record"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="com.exam.Song"/>
+    <fullyQualifiedTypeName name="com.exam.Rectangle"/>
+    <fullyQualifiedTypeName name="java.security.PublicKey"/>
+    <fullyQualifiedTypeName name="com.exam.Circle"/>
+    <fullyQualifiedTypeName name="com.Gamu.Player"/>
+    <fullyQualifiedTypeName name="Game.WordGameApp"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.awt.PageAttributes"/>
+    <fullyQualifiedTypeName name="Game.Player"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+</qualifiedTypeNameHistroy>

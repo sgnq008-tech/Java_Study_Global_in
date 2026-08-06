@@ -1,0 +1,25 @@
+package com.While;
+/*
+ *  문]
+ *     사용자가 입력하는 정수를 계속해서 더함
+ *     만약 0이 입력되면 지금까지 입력한 정수의 합계를
+ *     출력하는 프로그램을 작성하시오.
+ */
+import java.util.*;
+public class WhileEX05 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		
+		int n = 1, sum =0;
+		System.out.println("정수입력 : (-> 0 종료)");
+		n = s.nextInt();
+		sum +=n;
+		
+		while(n!= 0){
+			System.out.print("정수 입력 :");
+		n = s.nextInt();
+		System.out.println("지금까지 입력한 합계 :" +sum);
+	}
+
+}}

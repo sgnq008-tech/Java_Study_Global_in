@@ -1,0 +1,12 @@
+package com.objectEX;
+
+public class CardExam {
+
+	public static void main(String[] args) {
+		System.out.println("Card.width : "+Card.width);
+		System.out.println("Card.height : "+Card.height);
+
+
+	}
+
+}

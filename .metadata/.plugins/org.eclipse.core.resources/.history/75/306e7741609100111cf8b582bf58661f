@@ -1,0 +1,14 @@
+package com.Gamu;
+
+import java.util.*;
+public class start {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("게임 참가자 인원수 :");
+		
+
+	}
+
+}

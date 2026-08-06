@@ -1,0 +1,26 @@
+package com.Gamu;
+
+import java.util.Scanner;
+
+public class WordGameApp {
+	
+	public static void main(String[] args) {
+		
+		Player run = new Player();
+		
+		run.set();
+		run.input();
+				
+				
+	
+		
+		
+		
+		
+		
+		
+		
+		
+}
+
+}

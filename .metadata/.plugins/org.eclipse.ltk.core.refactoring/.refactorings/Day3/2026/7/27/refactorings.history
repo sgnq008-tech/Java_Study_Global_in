@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Com.typeEX.BuoleanEX&apos; to &apos;BooleanEX&apos;&#x0D;&#x0A;- Original project: &apos;Day3&apos;&#x0D;&#x0A;- Original element: &apos;Com.typeEX.BuoleanEX&apos;&#x0D;&#x0A;- Renamed element: &apos;Com.typeEX.BooleanEX&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;BuoleanEX&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;Com.typeEX{BuoleanEX.java[BuoleanEX" matchStrategy="1" name="BooleanEX" qualified="false" references="true" similarDeclarations="false" stamp="1782895907840" textual="false" version="1.0"/>
+</session>
