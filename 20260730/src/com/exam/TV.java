@@ -1,0 +1,26 @@
+package com.exam;
+
+
+public class TV {
+	
+	private String name;
+	private int year;
+	private int inch;
+	
+	// 생성자 제작
+	public TV(String name, int year, int inch) {
+     //this는 class TV를 뜻하는 것
+		this.name = name;
+		this.year = year;
+		this.inch = inch;
+	
+	}
+	
+	public void show() {
+		System.out.println(name+"에서 만든 "+year+"년형 "+inch+"인치 TV");
+	}
+
+	
+	
+	
+}

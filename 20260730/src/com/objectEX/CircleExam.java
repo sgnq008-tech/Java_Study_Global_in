@@ -1,0 +1,26 @@
+package com.objectEX;
+
+public class CircleExam {
+
+	public static void main(String[] args) {
+		Circle pizza; // 참조변수 pizza로 선언
+		pizza = new Circle(); // Circle이란 객체(인스턴스) 생성
+		pizza.radius = 10; // 피자의 반지름으로 10으로 설정했다.
+		pizza.name = "자바 피자";
+		
+		double area = pizza.getArea(); // 크기
+		System.out.println(pizza.name+"의 면적은"+area);
+		
+		
+		Circle donut = new Circle();
+		donut.radius = 2;
+		donut.name = "자바 도넛";
+		
+		area = donut.getArea();
+		System.out.println(donut.name+"의 면적은"+area);
+	
+		
+
+	}
+
+}

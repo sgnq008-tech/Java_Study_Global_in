@@ -1,0 +1,14 @@
+package com.objectEX;
+
+public class Sungjukmain {
+
+	public static void main(String[] args) {
+		Sungjuk s =new Sungjuk();
+		s.set();
+		s.input();
+		s.disp();
+		
+
+	}
+
+}

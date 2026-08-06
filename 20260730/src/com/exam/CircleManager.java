@@ -1,0 +1,36 @@
+package com.exam;
+
+import java.util.*;
+public class CircleManager {
+/* 문]
+ *      x, y, radius : 3.0 3.0 5
+ *      x, y, radius : 2.5 2.7 6
+ *      x, y, radius : 5.0 2.0 4
+ *      (3.0, 3.0) 5
+ *      (2.5, 2.7) 6
+ *      (5.0, 2.0) 4
+ */
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		// 3개의 Circle 객체 배열 선언
+		Circle c [] = new Circle[3];
+				
+		for(int i = 0; i < c.length; i++) {
+			System.out.print("x, y, radius : ");
+			// x의 길이, y의 길이, 반지름의 길이를 입력받음
+			double x = sc.nextDouble();
+			double y = sc.nextDouble();
+			int radius = sc.nextInt();
+			
+			// Circle 객체 생성
+			c[i] = new Circle(x, y, radius);
+		}
+	
+		// 모든 Circle 객체를 출력
+		for(int i = 0; i < c.length ; i++) {
+			c[i].show();
+		}
+	}
+
+}
