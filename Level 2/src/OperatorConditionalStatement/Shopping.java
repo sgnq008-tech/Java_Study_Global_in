@@ -5,7 +5,7 @@ public class Shopping {
 	public static void main(String[] args) {
 		int price = 45000; //(구매 금액)
 	    int shippingFee = 3000; //(기본 배송비)
-	    int totalPrice;
+	    int totalPrice = 0; //(최종 합산 금액)
 	    
 	    //조건문(50000원 이상인 경우)
 	    if(price <= 50000) 
