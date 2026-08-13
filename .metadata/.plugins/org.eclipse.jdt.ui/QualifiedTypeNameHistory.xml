@@ -24,9 +24,14 @@
     <fullyQualifiedTypeName name="com.exam.Circle"/>
     <fullyQualifiedTypeName name="com.Gamu.Player"/>
     <fullyQualifiedTypeName name="Game.WordGameApp"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.awt.PageAttributes"/>
     <fullyQualifiedTypeName name="Game.Player"/>
+    <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="VendingMachine.Drink"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="javax.swing.tree.FixedHeightLayoutCache"/>
+    <fullyQualifiedTypeName name="java.time.temporal.IsoFields"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="Machine.Car"/>
 </qualifiedTypeNameHistroy>

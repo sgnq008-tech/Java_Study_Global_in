@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="List[i].printInfo();"/>
 		<list key="findhistory">
+			<item value="List[i].printInfo();"/>
 			<item value="&#x09;&#x09;/*"/>
 			<item value="   if (inRect(x1, y1, 100,  100, 200, 200) || "/>
 			<item value="&#x09;/*"/>
