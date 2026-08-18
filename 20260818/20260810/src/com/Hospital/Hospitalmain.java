@@ -1,0 +1,17 @@
+package com.Hospital;
+
+public class Hospitalmain {
+
+	public static void main(String[] args) {
+		Hospital hospital = new Hospital();
+		// 
+		Animal dog = new Dog();
+		Animal cat = new Cat();
+		Animal tiger = new Tiger();
+		
+		hospital.inject(dog);
+		hospital.inject(cat);
+		hospital.inject(tiger);
+	}
+
+}
