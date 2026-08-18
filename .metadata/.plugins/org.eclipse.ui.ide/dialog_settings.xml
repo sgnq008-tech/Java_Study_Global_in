@@ -22,6 +22,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\user\Desktop\장준환\Java_Study_Global_in"/>
+			<item value="C:\Users\user\Downloads\IT_class_week_2"/>
 			<item value="C:\Users\user\Desktop\장준환\Java_Study_Global_in\Loopwhile+if"/>
 			<item value="C:\Users\user\Desktop\장준환\Java_Study_Global_in\Level 2"/>
 			<item value="C:\Users\user\Desktop\장준환\Java_Study_Global_in\20260811"/>
