@@ -35,4 +35,5 @@
     <fullyQualifiedTypeName name="java.time.temporal.IsoFields"/>
     <fullyQualifiedTypeName name="javax.print.attribute.standard.PrinterInfo"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.innerex.WinEvent"/>
 </qualifiedTypeNameHistroy>
