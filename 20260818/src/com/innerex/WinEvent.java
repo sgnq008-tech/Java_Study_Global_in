@@ -1,7 +1,11 @@
 package com.innerex;
 
-public class WinEvent {
+import java.awt.event.*;
+public class WinEvent extends WindowAdapter{
+	
+	public void windowClosing(WindowEvent e)
+	{
+		System.exit(0);
+	}
 
 }
-
-// 내부 클래스
