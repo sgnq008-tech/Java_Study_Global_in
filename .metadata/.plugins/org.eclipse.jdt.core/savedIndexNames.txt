@@ -2,7 +2,6 @@ INDEX VERSION 1.131+C:\Users\user\Desktop\장준환\Java_Study_Global_in\.metadata\
 291851726.index
 960266029.index
 1200423824.index
-1808634954.index
 1755401707.index
 1650135229.index
 3344625949.index
@@ -17,10 +16,8 @@ INDEX VERSION 1.131+C:\Users\user\Desktop\장준환\Java_Study_Global_in\.metadata\
 3655964211.index
 1474686092.index
 2958934411.index
-483042524.index
 4290062537.index
 2039145014.index
 3670928700.index
 3119222176.index
 663689219.index
-937948959.index
