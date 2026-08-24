@@ -44,4 +44,4 @@ public class NewTest03 {
         System.out.println(test2 + " -> " + isValid(test2)); // false (순서 불일치)
         System.out.println(test3 + " -> " + isValid(test3)); // false (덜 닫힘)
     }
-}
+},
