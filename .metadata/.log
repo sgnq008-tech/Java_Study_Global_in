@@ -15797,7 +15797,22 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+<<<<<<< HEAD
+
+!ENTRY org.eclipse.ui.ide 4 4 2026-08-20 20:34:56.117
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2026-08-20 20:34:56.118
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2026-08-20 20:34:56.118
+!MESSAGE The project description file (.project) for '20260818' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.core.resources 2 10035 2026-08-20 20:34:56.780
+!MESSAGE The workspace will exit with unsaved changes in this session.
+!SESSION 2026-08-21 18:11:12.226 -----------------------------------------------
+=======
 !SESSION 2026-08-20 23:29:58.475 -----------------------------------------------
+>>>>>>> 282e2ae48e32a52fb9c6a0a6e96b6a680d72af22
 eclipse.buildId=4.20.0.I20210611-1600
 java.version=16.0.1
 java.vendor=Oracle Corporation
@@ -15805,15 +15820,28 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
 Framework arguments:  -product org.eclipse.epp.package.java.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.core.resources 2 10035 2026-08-21 18:11:16.782
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2026-08-21 18:11:18.823
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2026-08-21 18:11:18.823
+=======
 !ENTRY org.eclipse.jface 2 0 2026-08-20 23:30:38.188
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
 !SUBENTRY 1 org.eclipse.jface 2 0 2026-08-20 23:30:38.188
+>>>>>>> 282e2ae48e32a52fb9c6a0a6e96b6a680d72af22
 !MESSAGE A conflict occurred for CTRL+SHIFT+T:
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
 		Open a type in a Java editor,
 		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+<<<<<<< HEAD
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5bad555b,
+=======
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@cfacf0,
+>>>>>>> 282e2ae48e32a52fb9c6a0a6e96b6a680d72af22
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
@@ -15821,11 +15849,20 @@ Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
 		,
 		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+<<<<<<< HEAD
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@41ec4271,
+=======
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4c8abec7,
+>>>>>>> 282e2ae48e32a52fb9c6a0a6e96b6a680d72af22
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.egit.ui 2 0 2026-08-21 18:11:21.918
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\user'. If this is
+=======
 !ENTRY org.eclipse.egit.ui 2 0 2026-08-20 23:30:46.045
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\kign5'. If this is
@@ -15864,104 +15901,7 @@ Binding(CTRL+SHIFT+T,
 !ENTRY org.eclipse.egit.ui 2 0 2026-08-20 23:32:09.874
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\kign5'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.ui.ide 4 4 2026-08-20 23:59:52.692
-!MESSAGE Problems saving workspace
-
-!ENTRY org.eclipse.ui.ide 2 1 2026-08-20 23:59:52.694
-!MESSAGE Problems occurred while trying to save the state of the workbench.
-!SUBENTRY 1 org.eclipse.core.resources 2 234 2026-08-20 23:59:52.694
-!MESSAGE The project description file (.project) for '20260811' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
-
-!ENTRY org.eclipse.core.resources 2 10035 2026-08-20 23:59:53.442
-!MESSAGE The workspace will exit with unsaved changes in this session.
-!SESSION 2026-08-22 19:07:44.143 -----------------------------------------------
-eclipse.buildId=4.20.0.I20210611-1600
-java.version=16.0.1
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.core.resources 2 10035 2026-08-22 19:07:53.049
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.jface 2 0 2026-08-22 19:08:04.188
-!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2026-08-22 19:08:04.188
-!MESSAGE A conflict occurred for CTRL+SHIFT+T:
-Binding(CTRL+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
-		Open a type in a Java editor,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7c048b30,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-Binding(CTRL+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
-		,
-		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@309cf657,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-
-!ENTRY org.eclipse.egit.ui 2 0 2026-08-22 19:08:10.426
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\kign5'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.ui.ide 4 4 2026-08-23 02:17:19.728
-!MESSAGE Problems saving workspace
-
-!ENTRY org.eclipse.ui.ide 2 1 2026-08-23 02:17:19.728
-!MESSAGE Problems occurred while trying to save the state of the workbench.
-!SUBENTRY 1 org.eclipse.core.resources 2 234 2026-08-23 02:17:19.728
-!MESSAGE The project description file (.project) for '20260817Level 1' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
-
-!ENTRY org.eclipse.core.resources 2 10035 2026-08-23 02:17:20.448
-!MESSAGE The workspace will exit with unsaved changes in this session.
-!SESSION 2026-08-23 20:28:14.493 -----------------------------------------------
-eclipse.buildId=4.20.0.I20210611-1600
-java.version=16.0.1
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.core.resources 2 10035 2026-08-23 20:28:19.951
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.jface 2 0 2026-08-23 20:28:33.342
-!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2026-08-23 20:28:33.342
-!MESSAGE A conflict occurred for CTRL+SHIFT+T:
-Binding(CTRL+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
-		Open a type in a Java editor,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@49f2646,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-Binding(CTRL+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
-		,
-		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4b00d59,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-
-!ENTRY org.eclipse.egit.ui 2 0 2026-08-23 20:28:40.037
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\kign5'. If this is
+>>>>>>> 282e2ae48e32a52fb9c6a0a6e96b6a680d72af22
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

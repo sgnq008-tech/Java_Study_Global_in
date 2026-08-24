@@ -22,7 +22,11 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+<<<<<<< HEAD
+			<item value="C:\Users\user\Downloads\20260820"/>
+=======
 			<item value="C:\Users\kign5\OneDrive\document\GitHub\Java_Study_Global_in"/>
+>>>>>>> 282e2ae48e32a52fb9c6a0a6e96b6a680d72af22
 			<item value="C:\Users\user\Downloads\20260818"/>
 			<item value="C:\Users\user\Desktop\장준환\Java_Study_Global_in"/>
 			<item value="C:\Users\user\Downloads\IT_class_week_2"/>
