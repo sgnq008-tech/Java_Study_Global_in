@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f4f6f9;
+    }
+    .container {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 320px;
+    }
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #007bff;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #555;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .error-msg {
+      color: #e74c3c;
+      font-size: 13px;
+      text-align: center;
+      margin-bottom: 15px;
+      display: none;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+    .link a {
+      color: #28a745;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>회원가입</h2>
+
+    <div id="errorMsg" class="error-msg"></div>
+
+    <form action="/BoardProject/api/join" method="post">
+      <div class="form-group">
+        <label for="userId">아이디</label>
+        <input type="text" id="userId" name="userId" placeholder="아이디 입력" required>
+      </div>
+
+      <div class="form-group">
+        <label for="userPw">비밀번호</label>
+        <input type="password" id="userPw" name="userPw" placeholder="비밀번호 입력" required>
+      </div>
+
+      <div class="form-group">
+        <label for="userName">이름</label>
+        <input type="text" id="userName" name="userName" placeholder="이름 입력" required>
+      </div>
+
+      <button type="submit">가입완료</button>
+    </form>
+
+    <div class="link">
+      이미 계정이 있으신가요? <a href="/BoardProject/login.html">로그인하러 가기</a>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get("error");
+    const errorDiv = document.getElementById("errorMsg");
+
+    if (error) {
+      if (error === "duplicate") {
+        errorDiv.innerText = "이미 존재하는 아이디입니다.";
+      } else if (error === "empty") {
+        errorDiv.innerText = "모든 항목을 입력해 주세요.";
+      } else {
+        errorDiv.innerText = "가입 처리 중 오류가 발생했습니다.";
+      }
+      errorDiv.style.display = "block";
+    }
+  </script>
+</body>
+</html>
