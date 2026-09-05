@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="boardTitle">掲示板</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+    }
+    .board-container {
+      background-color: white;
+      width: 100%;
+      max-width: 850px;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 12px;
+    }
+    .header-bar h2 {
+      margin: 0;
+      color: #007bff;
+    }
+    .lang-group {
+      display: flex;
+      gap: 5px;
+    }
+    .lang-btn {
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      border: 1px solid #007bff;
+      background-color: white;
+      color: #007bff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background-color: #007bff;
+      color: white;
+    }
+    .user-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      background-color: #f8f9fa;
+      border-radius: 6px;
+    }
+    .user-info {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+    .btn {
+      padding: 7px 14px;
+      font-size: 13px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .btn-logout { background-color: #6c757d; color: white; }
+    .btn-write { background-color: #007bff; color: white; }
+
+    /* 全体/自分の投稿 切り替えタブ */
+    .tab-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #dee2e6;
+      padding-bottom: 8px;
+    }
+    .tab-btn {
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: bold;
+      border: 1px solid #ced4da;
+      background-color: #fff;
+      color: #495057;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background-color: #28a745;
+      color: white;
+      border-color: #28a745;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 14px;
+    }
+    th {
+      background-color: #f1f3f5;
+      color: #495057;
+      padding: 12px;
+      border-top: 1px solid #dee2e6;
+      border-bottom: 2px solid #dee2e6;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #dee2e6;
+    }
+    tr:hover td { background-color: #f8f9fa; }
+    .col-title { text-align: left; padding-left: 15px; }
+    .empty-row { padding: 30px; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="board-container">
+    <!-- ヘッダー -->
+    <div class="header-bar">
+      <h2 data-i18n="boardTitle">📋 掲示板</h2>
+      <div class="lang-group">
+        <span>🌐</span>
+        <button type="button" class="lang-btn" id="btnJa" onclick="switchLang('ja')">日本語</button>
+        <button type="button" class="lang-btn" id="btnKo" onclick="switchLang('ko')">한국어</button>
+      </div>
+    </div>
+
+    <!-- ユーザー情報 & ボタン -->
+    <div class="user-nav">
+      <div class="user-info">
+        <span id="loginUserName">...</span><span id="welcomeSuffix"></span>
+      </div>
+      <div class="btn-group">
+        <form action="api/auth" method="post" style="margin: 0;">
+          <button type="submit" class="btn btn-logout" data-i18n="logoutBtn">ログアウト</button>
+        </form>
+        <a href="write.html" class="btn btn-write" data-i18n="newPostBtn">新規投稿</a>
+      </div>
+    </div>
+
+    <!-- フィルタータブ: 全体 / 自分の投稿 -->
+    <div class="tab-bar">
+      <button type="button" class="tab-btn active" id="tabAll" onclick="setTab('all')" data-i18n="allPostsTab">すべての投稿</button>
+      <button type="button" class="tab-btn" id="tabMy" onclick="setTab('my')" data-i18n="myPostsTab">自分の投稿</button>
+    </div>
+
+    <!-- 投稿テーブル -->
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 10%;" data-i18n="colBno">番号</th>
+          <th style="width: 50%;" data-i18n="colTitle">タイトル</th>
+          <th style="width: 18%;" data-i18n="colWriter">作成者</th>
+          <th style="width: 22%;" data-i18n="colDate">作成日時</th>
+        </tr>
+      </thead>
+      <tbody id="boardBody">
+        <tr><td colspan="4" class="empty-row">読み込み中...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="lang.js"></script>
+  <script>
+    let currentLoginUser = "";
+    let allPostsData = [];
+    let currentFilter = "all"; // "all" または "my"
+
+    function switchLang(lang) {
+      changeLanguage(lang);
+      updateSuffix();
+      renderTable();
+    }
+
+    // セッション認証チェック（ログイン中のユーザー名を取得）
+    fetch('api/auth')
+      .then(res => res.text())
+      .then(name => {
+        if (!name || name.trim() === '') {
+          location.href = 'login.html';
+        } else {
+          currentLoginUser = name.trim();
+          document.getElementById('loginUserName').innerText = currentLoginUser;
+          updateSuffix();
+          loadBoardList();
+        }
+      })
+      .catch(() => {
+        location.href = 'login.html';
+      });
+
+    function updateSuffix() {
+      const suffix = (currentLang === 'ja') ? " 様、ようこそ！" : "님 환영합니다!";
+      document.getElementById('welcomeSuffix').innerText = suffix;
+    }
+
+    // タブ切り替え処理
+    function setTab(filter) {
+      currentFilter = filter;
+      document.getElementById('tabAll').classList.toggle('active', filter === 'all');
+      document.getElementById('tabMy').classList.toggle('active', filter === 'my');
+      renderTable();
+    }
+
+    // 掲示板一覧の取得
+    function loadBoardList() {
+      fetch('api/board')
+        .then(res => res.json())
+        .then(posts => {
+          allPostsData = posts || [];
+          renderTable();
+        });
+    }
+
+    // 選択されたタブ（全件 or 自作）に応じてテーブルを描画
+    function renderTable() {
+      const tbody = document.getElementById('boardBody');
+      tbody.innerHTML = '';
+
+      // フィルター適用: "my"の場合は作成者(writer)が一致するものだけを抽出
+      const displayList = (currentFilter === 'my') 
+        ? allPostsData.filter(post => post.writer === currentLoginUser)
+        : allPostsData;
+
+      if (!displayList || displayList.length === 0) {
+        let emptyMsg = "";
+        if (currentFilter === 'my') {
+          emptyMsg = (currentLang === 'ja') ? "作成した投稿がありません。" : "내가 작성한 글이 없습니다.";
+        } else {
+          emptyMsg = (currentLang === 'ja') ? "登録された投稿がありません。" : "등록된 게시물이 없습니다.";
+        }
+        tbody.innerHTML = `<tr><td colspan="4" class="empty-row">${emptyMsg}</td></tr>`;
+        return;
+      }
+
+      displayList.forEach(post => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${post.bno}</td>
+          <td class="col-title">${post.title}</td>
+          <td>${post.writer}</td>
+          <td>${post.regDate}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  </script>
+</body>
+</html>
