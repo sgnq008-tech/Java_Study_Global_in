@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="boardTitle">アニメ感想・評価コミュニティ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 30px 15px;
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+    }
+    .board-container {
+      background-color: white;
+      width: 100%;
+      max-width: 920px;
+      padding: 30px 35px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #e63946;
+      padding-bottom: 12px;
+    }
+    .header-bar h2 {
+      margin: 0;
+      color: #e63946;
+      font-size: 20px;
+    }
+    .lang-group {
+      display: flex;
+      gap: 5px;
+    }
+    .lang-btn {
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: bold;
+      border: 1px solid #e63946;
+      background-color: white;
+      color: #e63946;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background-color: #e63946;
+      color: white;
+    }
+    .user-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      background-color: #f8f9fa;
+      border-radius: 6px;
+    }
+    .user-info {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+    .btn {
+      padding: 7px 14px;
+      font-size: 13px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .btn-logout { background-color: #6c757d; color: white; }
+    .btn-write { background-color: #e63946; color: white; }
+
+    .tab-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #dee2e6;
+      padding-bottom: 8px;
+    }
+    .tab-btn {
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: bold;
+      border: 1px solid #ced4da;
+      background-color: #fff;
+      color: #495057;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background-color: #1d3557;
+      color: white;
+      border-color: #1d3557;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 14px;
+    }
+    th {
+      background-color: #f1f3f5;
+      color: #495057;
+      padding: 12px;
+      border-top: 1px solid #dee2e6;
+      border-bottom: 2px solid #dee2e6;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #dee2e6;
+    }
+    tr:hover td { background-color: #fdfbf7; }
+    .anime-badge {
+      display: inline-block;
+      background-color: #f1faee;
+      color: #1d3557;
+      border: 1px solid #a8dadc;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      max-width: 160px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .col-title {
+      text-align: left;
+      padding-left: 10px;
+      font-weight: 500;
+    }
+    .stars {
+      color: #ffb703;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    .empty-row { padding: 40px; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="board-container">
+    <div class="header-bar">
+      <h2 data-i18n="boardTitle">🍿 アニメ感想・評価コミュニティ</h2>
+      
+      <!-- 3ヶ国語切り替え -->
+      <div class="lang-group">
+        <span style="font-size: 12px; margin-top: 2px;">🌐</span>
+        <button type="button" class="lang-btn" id="btnJa" onclick="switchLang('ja')">日本語</button>
+        <button type="button" class="lang-btn" id="btnKo" onclick="switchLang('ko')">한국어</button>
+        <button type="button" class="lang-btn" id="btnEn" onclick="switchLang('en')">EN</button>
+      </div>
+    </div>
+
+    <div class="user-nav">
+      <div class="user-info">
+        <span id="loginUserName">...</span><span id="welcomeSuffix"></span>
+      </div>
+      <div class="btn-group">
+        <form action="api/auth" method="post" style="margin: 0;">
+          <button type="submit" class="btn btn-logout" data-i18n="logoutBtn">ログアウト</button>
+        </form>
+        <a href="write.html" class="btn btn-write" data-i18n="newPostBtn">レビュー作成</a>
+      </div>
+    </div>
+
+    <!-- 全体レビュー / 自分のレビュー フィルタータブ -->
+    <div class="tab-bar">
+      <button type="button" class="tab-btn active" id="tabAll" onclick="setTab('all')" data-i18n="allPostsTab">すべてのレビュー</button>
+      <button type="button" class="tab-btn" id="tabMy" onclick="setTab('my')" data-i18n="myPostsTab">自分のレビュー</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 8%;" data-i18n="colBno">番号</th>
+          <th style="width: 20%;" data-i18n="colAnime">作品名</th>
+          <th style="width: 14%;" data-i18n="colRating">評価</th>
+          <th style="width: 32%;" data-i18n="colTitle">タイトル</th>
+          <th style="width: 12%;" data-i18n="colWriter">投稿者</th>
+          <th style="width: 14%;" data-i18n="colDate">投稿日</th>
+        </tr>
+      </thead>
+      <tbody id="boardBody">
+        <tr><td colspan="6" class="empty-row">読み込み中...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="lang.js"></script>
+  <script>
+    let currentLoginUser = "";
+    let allPostsData = [];
+    let currentFilter = "all";
+
+    function switchLang(lang) {
+      changeLanguage(lang);
+      updateSuffix();
+      renderTable();
+    }
+
+    // 認証確認処理
+    fetch('api/auth')
+      .then(res => res.text())
+      .then(name => {
+        if (!name || name.trim() === '') {
+          location.href = 'login.html';
+        } else {
+          currentLoginUser = name.trim();
+          document.getElementById('loginUserName').innerText = currentLoginUser;
+          updateSuffix();
+          loadBoardList();
+        }
+      })
+      .catch(() => { location.href = 'login.html'; });
+
+    function updateSuffix() {
+      const suffixes = {
+        ja: " 様、ようこそ！",
+        ko: "님 환영합니다!",
+        en: ", welcome!"
+      };
+      document.getElementById('welcomeSuffix').innerText = suffixes[currentLang] || suffixes.ja;
+    }
+
+    function setTab(filter) {
+      currentFilter = filter;
+      document.getElementById('tabAll').classList.toggle('active', filter === 'all');
+      document.getElementById('tabMy').classList.toggle('active', filter === 'my');
+      renderTable();
+    }
+
+    function loadBoardList() {
+      fetch('api/board')
+        .then(res => res.json())
+        .then(posts => {
+          allPostsData = posts || [];
+          renderTable();
+        });
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('boardBody');
+      tbody.innerHTML = '';
+
+      const displayList = (currentFilter === 'my') 
+        ? allPostsData.filter(post => post.writer === currentLoginUser)
+        : allPostsData;
+
+      if (!displayList || displayList.length === 0) {
+        const noPostMessages = {
+          ja: { my: "作成したレビューがありません。", all: "登録されたアニメレビューがありません。" },
+          ko: { my: "내가 작성한 리뷰가 없습니다.", all: "등록된 애니 리뷰가 없습니다." },
+          en: { my: "You haven't written any reviews yet.", all: "No anime reviews found." }
+        };
+        const langMap = noPostMessages[currentLang] || noPostMessages.ja;
+        const msg = (currentFilter === 'my') ? langMap.my : langMap.all;
+
+        tbody.innerHTML = `<tr><td colspan="6" class="empty-row">${msg}</td></tr>`;
+        return;
+      }
+
+      displayList.forEach(post => {
+        const starCount = Math.min(Math.max(post.rating || 5, 1), 5);
+        const starStr = "★".repeat(starCount) + "☆".repeat(5 - starCount);
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${post.bno}</td>
+          <td><span class="anime-badge">${post.animeTitle}</span></td>
+          <td class="stars">${starStr}</td>
+          <td class="col-title">${post.title}</td>
+          <td>${post.writer}</td>
+          <td>${post.regDate}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  </script>
+</body>
+</html>
